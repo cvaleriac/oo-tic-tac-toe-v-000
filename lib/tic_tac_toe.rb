@@ -76,6 +76,17 @@ def turn
     winner = @board[won?[0]]
   end
  end
+ def play(board)
+   until over?(board) == true
+     turn(board)
+   end
+   if won?(board)
+    puts "Congratulations #{winner(board)}!"
+  else draw?(board) == true
+    puts "Cat's Game!"
+   end
+ end
+
 
 def move(index, value = "X")
   @board[index.to_i] = value
@@ -87,16 +98,3 @@ def position_taken?(index)
   else #(board[index] == "X" || board[index]== "O")
     return true
   end
-
- def play(board)
-   until over?(board) == true
-     turn(board)
-   end
-   if won?(board)
-    puts "Congratulations #{winner(board)}!"
-  else draw?(board) == true
-    puts "Cat's Game!"
-   end
- end
-end
-end
