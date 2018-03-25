@@ -67,6 +67,10 @@ def turn
    won? == nil && full? == true
  end
 
+ def over?
+     draw? == true || won? != nil
+ end
+
 def move(index, value = "X")
   @board[index.to_i] = value
 end
@@ -77,10 +81,6 @@ def position_taken?(index)
   else #(board[index] == "X" || board[index]== "O")
     return true
   end
-
- def over?(board)
-     draw?(board) == true || won?(board) != nil
- end
 
  def winner(board)
   if won?(board) != nil
