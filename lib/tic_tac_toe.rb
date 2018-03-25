@@ -76,13 +76,14 @@ def turn
     winner = @board[won?[0]]
   end
  end
- def play(board)
-   until over?(board) == true
-     turn(board)
+
+ def play
+   until over? == true
+     turn
    end
-   if won?(board)
+   if won?
     puts "Congratulations #{winner(board)}!"
-  else draw?(board) == true
+  else draw? == true
     puts "Cat's Game!"
    end
  end
