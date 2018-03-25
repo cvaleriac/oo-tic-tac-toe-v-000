@@ -17,7 +17,7 @@ def input_to_index (index)
  index = index - 1
 end
 
-def move (board, index, value)
+def move
   @board[index.to_i] = value
 end
 
