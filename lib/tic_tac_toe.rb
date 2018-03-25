@@ -82,7 +82,7 @@ def turn
      turn
    end
    if won?
-    puts "Congratulations #{winner(board)}!"
+    puts "Congratulations #{winner}!"
   else draw? == true
     puts "Cat's Game!"
    end
