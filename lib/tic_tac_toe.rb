@@ -33,7 +33,7 @@ if index.between?(0,8) && !position_taken?(index)
 else
   false
   end
-
+end
 def turn (board)
   puts "Please enter 1-9:"
 
