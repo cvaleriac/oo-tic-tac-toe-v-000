@@ -23,6 +23,15 @@ else
 false
   end
 end
+def turn_count
+  count = 0
+  @board.each do |move|
+    if move == "X" || move == "O"
+      count += 1
+    end
+  end
+  count
+end
 
 def move(index, value = "X")
   @board[index.to_i] = value
@@ -50,15 +59,6 @@ def turn (board)
    puts "Please enter 1-9:"
  end
 
- def turn_count
-   count = 0
-   @board.each do |move|
-     if move == "X" || move == "O"
-       count += 1
-     end
-   end
-   count
- end
 
  def current_player(board)
    turn_count(@board).even? ? "X" : "O"
