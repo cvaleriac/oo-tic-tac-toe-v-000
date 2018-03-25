@@ -57,6 +57,11 @@ def turn
      @board[win_combo[0]] == @board[win_combo[1]] && @board[win_combo[0]] == @board[win_combo[2]] && position_taken?(win_combo[1])
    end
  end
+ def full?
+ @board.none? do |full_board|
+   full_board == " " || nil
+   end
+ end
 
 def move(index, value = "X")
   @board[index.to_i] = value
@@ -68,12 +73,6 @@ def position_taken?(index)
   else #(board[index] == "X" || board[index]== "O")
     return true
   end
-
- def full?(board)
- board.none? do |full_board|
-   full_board == " " || nil
-   end
- end
 
  def draw?(board)
    won?(board) == nil && full?(board) == true
