@@ -71,6 +71,12 @@ def turn
      draw? == true || won? != nil
  end
 
+ def winner
+  if won? != nil
+    winner = @board[won?[0]]
+  end
+ end
+
 def move(index, value = "X")
   @board[index.to_i] = value
 end
@@ -82,11 +88,6 @@ def position_taken?(index)
     return true
   end
 
- def winner(board)
-  if won?(board) != nil
-    winner = board[won?(board)[0]]
-  end
- end
  def play(board)
    until over?(board) == true
      turn(board)
