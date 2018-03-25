@@ -33,6 +33,10 @@ def turn_count
   count
 end
 
+def current_player(board)
+  turn_count(@board).even? ? "X" : "O"
+end
+
 def move(index, value = "X")
   @board[index.to_i] = value
 end
@@ -57,11 +61,6 @@ def turn (board)
      turn(board)
    end
    puts "Please enter 1-9:"
- end
-
-
- def current_player(board)
-   turn_count(@board).even? ? "X" : "O"
  end
 
  def won?(board)
