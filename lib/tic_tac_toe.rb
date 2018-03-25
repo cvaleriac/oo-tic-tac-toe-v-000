@@ -33,7 +33,7 @@ def turn_count
   count
 end
 
-def current_player(board)
+def current_player
   turn_count(@board).even? ? "X" : "O"
 end
 
