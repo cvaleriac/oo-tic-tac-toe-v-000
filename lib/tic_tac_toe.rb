@@ -37,6 +37,21 @@ def current_player
   turn_count % 2 == 0 ? "X" : "O"
 end
 
+def turn
+  puts "Please enter 1-9:"
+
+  input = gets.strip
+  index = input_to_index(input)
+  value = current_player
+  if valid_move?(index)
+     move(index,value)
+     display_board
+   else
+     turn
+   end
+   puts "Please enter 1-9:"
+ end
+
 def move(index, value = "X")
   @board[index.to_i] = value
 end
@@ -47,21 +62,6 @@ def position_taken?(index)
   else #(board[index] == "X" || board[index]== "O")
     return true
   end
-
-def turn (board)
-  puts "Please enter 1-9:"
-
-  input = gets.strip
-  index = input_to_index(input)
-  value = current_player(board)
-  if valid_move?(board, index)
-     move(board,index,value)
-     display_board(board)
-   else
-     turn(board)
-   end
-   puts "Please enter 1-9:"
- end
 
  def won?(board)
    WIN_COMBINATIONS.find do |win_combo|
