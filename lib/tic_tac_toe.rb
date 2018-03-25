@@ -16,7 +16,7 @@ def input_to_index (index)
  index = index.to_i
  index = index - 1
 end
-def valid_move?(input)
+def valid_move?(index)
 if index.between?(0,8) && !position_taken?(index)
 return true
 else
