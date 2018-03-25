@@ -52,6 +52,12 @@ def turn
    puts "Please enter 1-9:"
  end
 
+ def won?
+   WIN_COMBINATIONS.find do |win_combo|
+     @board[win_combo[0]] == @board[win_combo[1]] && @board[win_combo[0]] == @board[win_combo[2]] && position_taken?(board, win_combo[1])
+   end
+ end
+
 def move(index, value = "X")
   @board[index.to_i] = value
 end
@@ -62,12 +68,6 @@ def position_taken?(index)
   else #(board[index] == "X" || board[index]== "O")
     return true
   end
-
- def won?(board)
-   WIN_COMBINATIONS.find do |win_combo|
-     @board[win_combo[0]] == @board[win_combo[1]] && @board[win_combo[0]] == @board[win_combo[2]] && position_taken?(board, win_combo[1])
-   end
- end
 
  def full?(board)
  board.none? do |full_board|
