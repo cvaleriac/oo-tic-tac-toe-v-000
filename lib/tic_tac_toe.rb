@@ -16,6 +16,13 @@ def input_to_index (index)
  index = index.to_i
  index = index - 1
 end
+def valid_move?(input)
+if index.between?(0,8) && !position_taken?(index)
+return true
+else
+false
+  end
+end
 
 def move(index, value = "X")
   @board[index.to_i] = value
@@ -27,13 +34,7 @@ def position_taken?(index)
   else #(board[index] == "X" || board[index]== "O")
     return true
   end
-  def valid_move?(input)
-if index.between?(0,8) && !position_taken?(index)
-  return true
-else
-  false
-  end
-end
+
 def turn (board)
   puts "Please enter 1-9:"
 
