@@ -50,7 +50,7 @@ def turn (board)
    puts "Please enter 1-9:"
  end
 
- def turn_count(board)
+ def turn_count
    count = 0
    @board.each do |move|
      if move == "X" || move == "O"
